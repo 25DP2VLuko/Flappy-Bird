@@ -1,21 +1,41 @@
-/* Noņem pārlūka noklusējuma malas un ritjoslas */
-html, body {
+body {
     margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
     overflow: hidden;
-    background-color: #111; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    background: linear-gradient(to bottom, #6fc8ff, #dff7ff);
 }
 
-/* Liks canvas elementam aizpildīt visu ekrānu */
+/* Fona slāņi */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+body::before {
+    z-index: -2;
+    /* Kalni */
+    background:
+        linear-gradient(135deg, transparent 50%, #6e7f5f 50%) 0 100% / 500px 350px repeat-x,
+        linear-gradient(225deg, transparent 50%, #5c6f50 50%) 250px 100% / 500px 350px repeat-x;
+}
+
+body::after {
+    z-index: -1;
+    /* Zāle, koki, puķes */
+    background:
+        radial-gradient(circle, #ff69b4 0 4px, transparent 5px) 0 calc(100% - 25px)/120px 40px repeat-x,
+        linear-gradient(#3fae3f, #2e8b2e) bottom/100% 120px no-repeat;
+}
+
+/* Spēles canvas vienmēr priekšā */
 canvas {
+    
+    z-index: 10;
     display: block;
     width: 100vw;
     height: 100vh;
-    object-fit: contain; /* Saglabā spēles proporcijas, lai nekas neizskatītos izstiepts */
-    background-color: #222; 
+    background: transparent;
 }
