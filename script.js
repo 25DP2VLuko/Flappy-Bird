@@ -128,8 +128,7 @@ function update() {
 
 function draw() {
 
-    ctx.fillStyle = "#70c5ce";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 
     ctx.fillStyle = "#73bf2e";
